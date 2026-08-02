@@ -2,14 +2,16 @@
 
 In a moment of nostalgia and reminiscence, I asked moonshot/Kimi-K3 to re-create a game similar to the classic Micro Machines racing game I played as a kid.
 
-It did a remarkable job as you can see, in only 2 prompts and in about 20 mins of work using the [pi](pi.dev) harness.
+It did a remarkable job as you can see, in only 2 prompts and in about 20 mins of work using the [pi](https://pi.dev/) harness.
 
 Below I attach the 2 prompts I used to make this game. Everything else in this repo is created by the model.
 
-[Try the game out!](ovanveljanoski.github.io/micromachines/)
+[Try the game out!](https://jovanveljanoski.github.io/micromachines/)
 
 <details>
 <summary>Initial prompt</summary>
+
+```
 In the current folder, create a replica of the famous racing game micromachines.
 Use threejs what whatever helpful light JS libraries you need. Node is installed on the system.
 
@@ -24,13 +26,17 @@ Be a harsh critic in terms of :
 You must deliver a AAA quality. Run a gountlet: design and implement, then subagents critique the work. Tthen repeat the process until all subagents and yourself are 100% convinced that this is the best possible outcome.
 
 Do not stop until you get a perfectly playable game!"
+```
+
 </details>
 
 <details>
 <summary>Prompt 2</summary>
-"Some feedback:
 
-- THe controls of the car are opposite to what I expect (e.g. turning left turns the car right etc..) This is the most important point
+```
+Some feedback:
+
+- The controls of the car are opposite to what I expect (e.g. turning left turns the car right etc..) This is the most important point
 - The tracks are nice but it is not clear where the path should go.. some more obvious indicators are needed, but i like the open-worldness of it
 - The speed up arrows are confising as they point in the direction you are coming from and not where you should be going.
 
@@ -39,10 +45,11 @@ Add a car chooser option:
 Have 4 choices, but make them balanced between (handling, speed, acceleration, x-factor). None should be better than the rest. If a player chooses one, the AI drives the others. The cars should be different shapes (models) in addition to having different colours.
 
 Put this all throught the gountlent as before: a group of subagents are making the game, another group are reviewing from all possible angles (code, artistic, playability, physics, sensible controls, etc.. )."
+```
+
 </details>
+
 ---
-
-
 
 # MICRO MACHINES — Tabletop Turbo
 
