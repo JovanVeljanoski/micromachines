@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micro Machines — Tabletop Turbo</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='6' y='8' width='20' height='16' rx='4' fill='%23d43a2f'/><rect x='11' y='12' width='10' height='8' rx='2' fill='%23aecbe8'/></svg>">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js" } }
+</script>
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+<div id="vignette"></div>
+
+<!-- ============ HUD ============ -->
+<div id="hud" class="hidden">
+  <div id="hud-topleft">
+    <div id="hud-lap">LAP <span id="lap-cur">1</span>/<span id="lap-max">3</span></div>
+    <div id="hud-time">0:00.0</div>
+  </div>
+  <div id="hud-topright">
+    <div id="hud-pos">1st</div>
+    <ol id="hud-standings"></ol>
+  </div>
+  <div id="hud-bottomleft">
+    <div id="hud-bestlap">BEST --:--.-</div>
+  </div>
+  <div id="hud-boost" class="hidden">BOOST!</div>
+  <div id="hud-msg"></div>
+  <div id="hud-wrongway" class="hidden">&#x26A0; WRONG WAY &#x26A0;</div>
+  <div id="hud-countdown" class="hidden">
+    <div class="cd-lamp" id="cd1"></div>
+    <div class="cd-lamp" id="cd2"></div>
+    <div class="cd-lamp" id="cd3"></div>
+  </div>
+</div>
+
+<!-- ============ TITLE ============ -->
+<div id="title-screen">
+  <div class="checker-strip top"></div>
+  <div id="logo">
+    <div id="logo-micro">MICRO</div>
+    <div id="logo-machines">MACHINES</div>
+    <div id="logo-sub">TABLETOP&nbsp;TURBO&nbsp;EDITION</div>
+  </div>
+  <div id="menu">
+    <button class="menu-btn" id="btn-start">START RACE</button>
+    <button class="menu-btn" id="btn-garage">GARAGE</button>
+    <button class="menu-btn" id="btn-levels">LEVEL SELECT</button>
+    <button class="menu-btn" id="btn-help">HOW TO PLAY</button>
+    <button class="menu-btn" id="btn-mute">SOUND: ON</button>
+  </div>
+  <div id="title-hint">Arrow keys / WASD to drive &nbsp;&bull;&nbsp; SPACE to drift</div>
+  <div class="checker-strip bottom"></div>
+</div>
+
+<!-- ============ LEVEL SELECT ============ -->
+<div id="level-select" class="panel hidden">
+  <h2>SELECT CIRCUIT</h2>
+  <div id="level-cards"></div>
+  <button class="menu-btn back-btn" id="btn-levels-back">&larr; BACK</button>
+</div>
+
+<!-- ============ CAR SELECT ============ -->
+<div id="car-select" class="panel hidden">
+  <h2>CHOOSE YOUR MACHINE</h2>
+  <div id="car-stage">
+    <button class="car-arrow" id="car-prev">&#9664;</button>
+    <canvas id="car-preview" width="560" height="340"></canvas>
+    <button class="car-arrow" id="car-next">&#9654;</button>
+  </div>
+  <div id="car-name">BLAZE GT</div>
+  <div id="car-desc"></div>
+  <div id="car-stats"></div>
+  <div class="results-btns">
+    <button class="menu-btn" id="btn-car-race">RACE!</button>
+    <button class="menu-btn back-btn" id="btn-car-back">&larr; BACK</button>
+  </div>
+</div>
+
+<!-- ============ HELP ============ -->
+<div id="help-screen" class="panel hidden">
+  <h2>HOW TO PLAY</h2>
+  <div class="help-grid">
+    <div><span class="key">&uarr;/W</span> Accelerate</div>
+    <div><span class="key">&darr;/S</span> Brake / Reverse</div>
+    <div><span class="key">&larr;&rarr;/A D</span> Steer</div>
+    <div><span class="key">SPACE</span> Handbrake / Drift</div>
+    <div><span class="key">P / ESC</span> Pause</div>
+    <div><span class="key">M</span> Mute</div>
+  </div>
+  <p class="help-tip">Race 3 laps against 3 rivals. Stay on the table &mdash; fall off and you'll be rescued, but you'll lose time. Grab the <b>chevron boosts</b> and mind the spills!</p>
+  <button class="menu-btn back-btn" id="btn-help-back">&larr; BACK</button>
+</div>
+
+<!-- ============ PAUSE ============ -->
+<div id="pause-screen" class="panel hidden">
+  <h2>PAUSED</h2>
+  <button class="menu-btn" id="btn-resume">RESUME</button>
+  <button class="menu-btn" id="btn-restart">RESTART RACE</button>
+  <button class="menu-btn" id="btn-quit">QUIT TO TITLE</button>
+</div>
+
+<!-- ============ RESULTS ============ -->
+<div id="results-screen" class="panel hidden">
+  <h2 id="results-title">RACE COMPLETE</h2>
+  <table id="results-table"></table>
+  <div id="results-best"></div>
+  <div class="results-btns">
+    <button class="menu-btn" id="btn-next">NEXT CIRCUIT &rarr;</button>
+    <button class="menu-btn" id="btn-retry">RETRY</button>
+    <button class="menu-btn" id="btn-results-car">CHANGE CAR</button>
+    <button class="menu-btn" id="btn-results-menu">MENU</button>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

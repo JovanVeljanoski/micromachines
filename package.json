@@ -1,0 +1,25 @@
+{
+  "name": "micro-machines-tabletop-turbo",
+  "version": "1.0.0",
+  "description": "A loving fan-made tribute to Codemasters Micro Machines — top-down tabletop racing in Three.js.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node serve.mjs",
+    "simulate": "node test/simulate.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "pngjs": "^7.0.0",
+    "puppeteer": "^25.4.0",
+    "three": "^0.160.0"
+  },
+  "allowScripts": {
+    "puppeteer@25.4.0": true
+  }
+}
