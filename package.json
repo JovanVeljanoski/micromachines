@@ -8,7 +8,9 @@
   },
   "scripts": {
     "start": "node serve.mjs",
-    "simulate": "node test/simulate.mjs"
+    "simulate": "node test/simulate.mjs",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "test": "npm run simulate && node test/controls.mjs && node test/arrowMath.mjs && node test/vehicleBalance.mjs"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,11 @@
     "pngjs": "^7.0.0",
     "puppeteer": "^25.4.0",
     "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0"
   },
   "allowScripts": {
     "puppeteer@25.4.0": true
